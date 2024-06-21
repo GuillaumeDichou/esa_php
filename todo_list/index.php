@@ -98,40 +98,68 @@
             </div>
             
         </div>
+        <div class="container3">
+            <div class="profile-container">
+                <?php
 
-        <div class="profile-container">
-            <?php
+                $file = fopen("profile.csv", "r");
 
-            $file = fopen("profile.csv", "r");
+                while(!feof($file)) {
+                    $contentFile[] = fgetcsv($file);
+                }
 
-            while(!feof($file)) {
-                $contentFile[] = fgetcsv($file);
-            }
+                fclose($file);
 
-            fclose($file);
+                $level = $contentFile[0][0];
+                $rank = $contentFile[1][0];
+                $xp = $contentFile[2][0];
+                $xpNeeded = $level + 9;
 
-            $level = $contentFile[0][0];
-            $rank = $contentFile[1][0];
-            $xp = $contentFile[2][0];
-
-            ?>
-            <h1>Profile</h1>
-            <div class="profile-info">
-                <div class="profile-item">
-                    <span>Level:</span>
-                    <span id="level"><?php echo $level; ?></span>
+                ?>
+                <h1>Profile</h1>
+                <div class="profile-info">
+                    <div class="profile-item">
+                        <span>Level:</span>
+                        <span id="level"><?php echo $level; ?></span>
+                    </div>
+                    <div class="profile-item">
+                        <span>Rank:</span>
+                        <span id="rank"><?php echo $rank ?></span>
+                    </div>
+                    <div class="profile-item">
+                        <span>XP:</span>
+                        <span id="xp1"><?php echo $xp ?></span>
+                        <span id="xp2"><?php echo "/ " . $xpNeeded ?></span>
+                    </div>
                 </div>
-                <div class="profile-item">
-                    <span>Rank:</span>
-                    <span id="rank"><?php echo $rank ?></span>
-                </div>
-                <div class="profile-item">
-                    <span>XP:</span>
-                    <span id="xp"><?php echo $xp ?></span>
-                </div>
+            </div>
+
+            <div class="badges">
+                <h1>Badges</h1>
+                <?php
+                $currentBadge = floor($level / 20) + 1;
+                if ($currentBadge > 9) {
+                    $currentBadge = 9;
+                }
+
+                $badges = [
+                    0 => ['name' => 'Badge 0', 'image' => 'badge0.jpg'],
+                    1 => ['name' => 'Badge 1', 'image' => 'badge1.jpg'],
+                    2 => ['name' => 'Badge 2', 'image' => 'badge2.jpg'],
+                    3 => ['name' => 'Badge 3', 'image' => 'badge3.jpg'],
+                    4 => ['name' => 'Badge 4', 'image' => 'badge4.jpg'],
+                    5 => ['name' => 'Badge 5', 'image' => 'badge5.jpg'],
+                    6 => ['name' => 'Badge 6', 'image' => 'badge6.jpg'],
+                    7 => ['name' => 'Badge 7', 'image' => 'badge7.jpg'],
+                    8 => ['name' => 'Badge 8', 'image' => 'badge8.jpg']
+                ];
+
+                for ($i = 0; $i < $currentBadge; $i++) {
+                    echo '<img src="badges/' . $badges[$i]['image'] . '" alt="' . $badges[$i]['name'] . '">';
+                }
+                ?>
             </div>
         </div>
     </div>
-
 </body>
 </html>

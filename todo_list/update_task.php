@@ -49,6 +49,7 @@ if ($completed) {
                 break;
             case 'yearly':
                 $xpEarned = 365;
+                break;
             case 'one shot':
                 $xpEarned = 5;
                 break;
@@ -66,6 +67,7 @@ if ($completed) {
                 break;
             case 'yearly':
                 $xpEarned = 730;
+                break;
             case 'one shot':
                 $xpEarned = 100;
                 break;
@@ -83,6 +85,7 @@ if ($completed) {
                 break;
             case 'yearly':
                 $xpEarned = 1095;
+                break;
             case 'one shot':
                 $xpEarned = 2000;
                 break;

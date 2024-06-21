@@ -45,18 +45,27 @@ foreach ($filteredTasks as $task) {
 foreach ($incompleteTasks as $index => $task) {
     $checked = $task[3] == '1' ? 'checked' : ''; // Determining checkbox status
     echo '<div class="task">';
-    echo '<form action="update_task.php" method="POST" style="display:inline;">'; // Creates a form to update task status
+    echo '<form action="update_task.php" method="POST" style="display:inline-block; max-width: 350px;">'; // Creates a form to update task status
     echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">'; // Adds a hidden field containing the task index to the $tasks array. This lets update_task.php know which task needs updating.
     echo '<input type="checkbox" name="completed" ' . $checked . ' onchange="this.form.submit()">'; // Check box to mark task completed
-    echo '<span>' . htmlspecialchars($task[0]) . '</span>';
-    echo '<span>Difficulty : ' . htmlspecialchars($task[1]) . '</span>';
-    echo '<span>Frequency : ' . htmlspecialchars($task[2]) . '</span>';
+    echo '<span class="task_name">' . ($task[0]) . '</span>';
+    echo '<br>';
+    echo '<span>Difficulty : ' . ($task[1]) . '</span>';
+    echo '<span>Frequency : ' . ($task[2]) . '</span>';
+    echo '</form>';
+    // Div for Edit and Delete button
+    echo '<div class="task_buttons">';
+    // Form to edit task
+    echo '<form action="edit_task0.php" method="POST" style="display:inline;">';
+    echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">';
+    echo '<button class="edit_button" type="submit">Edit</button>';
     echo '</form>';
     // Form to delete task
     echo '<form action="delete_task.php" method="POST" style="display:inline;">';
     echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">';
-    echo '<button type="submit">Delete</button>';
+    echo '<button class="delete_button" type="submit">Delete</button>';
     echo '</form>';
+    echo '</div>';
     echo '</div>';
 }
 
@@ -64,17 +73,24 @@ foreach ($incompleteTasks as $index => $task) {
 foreach ($completedTasks as $index => $task) {
     $checked = $task[3] == '1' ? 'checked' : '';
     echo '<div class="task completed-task">';
-    echo '<form action="update_task.php" method="POST" style="display:inline;">';
+    echo '<form action="update_task.php" method="POST" style="display:inline-block; max-width: 350px;">';
     echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">';
     echo '<input type="checkbox" name="completed" ' . $checked . ' onchange="this.form.submit()">';
-    echo '<span>' . htmlspecialchars($task[0]) . '</span>';
-    echo '<span>Difficulty : ' . htmlspecialchars($task[1]) . '</span>';
-    echo '<span>Frequency : ' . htmlspecialchars($task[2]) . '</span>';
+    echo '<span  class="completed">' . ($task[0]) . '</span>';
+    echo '<br>';
+    echo '<span class="completed">Difficulty : ' . ($task[1]) . '</span>';
+    echo '<span class="completed">Frequency : ' . ($task[2]) . '</span>';
+    echo '</form>';
+    echo '<div class="task_buttons">';
+    echo '<form action="edit_task0.php" method="POST" style="display:inline;">';
+    echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">';
+    echo '<button class="edit_button" type="submit">Edit</button>';
     echo '</form>';
     echo '<form action="delete_task.php" method="POST" style="display:inline;">';
     echo '<input type="hidden" name="task_index" value="' . array_search($task, $tasks) . '">';
-    echo '<button type="submit">Delete</button>';
+    echo '<button class="delete_button" type="submit">Delete</button>';
     echo '</form>';
+    echo '</div>';
     echo '</div>';
 }
 ?>

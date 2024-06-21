@@ -103,7 +103,7 @@ body {
     margin: 0;
 }
 
-.task form button {
+.delete_button {
     background-color: #d32f2f;
     color: #fff;
     border: none;
@@ -111,11 +111,26 @@ body {
     padding: 5px 10px;
 }
 
-.task form button:hover {
+.delete_button:hover {
     background-color: #9a0000;
 }
 
-.profile-container {
+.edit_button {
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.edit_button:hover {
+    background-color: darkblue;
+}
+
+.container3 {
+    display: flex;
+    flex-direction: column;
     width: 25%;
     border: 1px solid #ccc;
     padding: 10px;
@@ -138,6 +153,10 @@ body {
     margin-bottom: 10px;
 }
 
+#xp1 {
+    margin-left: 75%;
+}
+
 .rules {
     width: 25%;
     border: 1px solid #ccc;
@@ -149,4 +168,22 @@ body {
 
 .tasks {
     width: 500px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.task_button {
+    display: inline-block;
+}
+
+.badges h1 {
+    text-align: center;
+}
+
+.badges img {
+    width: 110px;
+    height: 150px;
+    margin: 5px;
 }
