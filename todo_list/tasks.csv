@@ -1,2 +1,7 @@
-Test,easy,daily,0
 "Fast xp",hard,"one shot",0
+Easy,easy,daily,0
+medium,medium,daily,0
+hard,hard,daily,0
+"easy finished",easy,daily,1
+"medium finished",medium,daily,1
+"hard finished",hard,daily,1

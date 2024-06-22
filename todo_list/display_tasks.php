@@ -41,6 +41,14 @@ foreach ($filteredTasks as $task) {
     }
 }
 
+function compareByDifficulty($task1, $task2) {
+    $difficultyOrder = ['hard' => 1, 'medium' => 2, 'easy' => 3];
+    return $difficultyOrder[$task1[1]] - $difficultyOrder[$task2[1]];
+}
+
+usort($incompleteTasks, 'compareByDifficulty');
+usort($completedTasks, 'compareByDifficulty');
+
 // Displaying unfinished tasks
 foreach ($incompleteTasks as $index => $task) {
     $checked = $task[3] == '1' ? 'checked' : ''; // Determining checkbox status
