@@ -2,7 +2,7 @@
 
 Étape 2 : Installer les dépendances (composer install / npm install)
 
-Étape 3 :Créer la base de données (CREATE DATABASE hypo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;)
+Étape 3 : Créer la base de données (CREATE DATABASE hypo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;)
 
 .env :
 DB_CONNECTION=mysql
